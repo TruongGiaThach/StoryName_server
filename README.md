@@ -29,6 +29,7 @@
 ## Installation
 
 ```bash
+$ nvm use
 $ npm install
 ```
 
