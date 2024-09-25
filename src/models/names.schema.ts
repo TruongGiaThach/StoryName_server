@@ -7,10 +7,7 @@ export type NameDocument = Name & Document;
 @Schema({ timestamps: true })
 export class Name extends BaseSchema {
   @Prop({ required: true, unique: true })
-  wrappedNameTokenId: string;
-
-  @Prop({ required: true, unique: true })
-  unwrappedNameTokenId: string;
+  tokenId: string;
 
   @Prop({ required: true, unique: true })
   name: string;
@@ -24,9 +21,6 @@ export class Name extends BaseSchema {
   @Prop()
   labelHash?: string;
 
-  @Prop({ required: true, default: true })
-  isWrapped: boolean;
-
   @Prop({ required: true })
   chain: string;
 
@@ -34,7 +28,7 @@ export class Name extends BaseSchema {
   owner: string;
 
   @Prop({ required: true })
-  wrappedMetadataUrl: string;
+  metadataUrl: string;
 
   @Prop({ required: true })
   type: string;

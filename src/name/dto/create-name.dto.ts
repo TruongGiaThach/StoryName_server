@@ -11,22 +11,13 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateNameDto {
   @ApiProperty({
-    description: 'The ID of the wrapped name token (ERC1155)',
-    example:
-      '0x91b4480e97a5b9019d4d1b57d91f8ed08a096a274b0a2baa0ec3ffb6b3b04125',
-  })
-  @IsNotEmpty()
-  @IsString()
-  readonly wrappedNameTokenId: string;
-
-  @ApiProperty({
     description: 'The ID of the name token (ERC721)',
     example:
       '65903892835380288152772587958418370832903440178584106568354280497978461405477',
   })
   @IsNotEmpty()
   @IsString()
-  readonly unwrappedNameTokenId: string;
+  readonly tokenId: string;
 
   @ApiProperty({
     description: 'The user`s ENS name',
@@ -63,14 +54,6 @@ export class CreateNameDto {
   readonly labelHash: string;
 
   @ApiProperty({
-    description: 'Indicates if the name is wrapped',
-    example: true,
-  })
-  @IsNotEmpty()
-  @IsBoolean()
-  readonly isWrapped: boolean;
-
-  @ApiProperty({
     description: 'Blockchain network of the Name Service',
     example: 'Story',
   })
@@ -79,13 +62,13 @@ export class CreateNameDto {
   readonly chain: string;
 
   @ApiProperty({
-    description: 'The metadata URL for the wrapped name',
+    description: 'The metadata URL for the name',
     example:
-      'https://storyname-server.onrender.com/metadata/wrapped-name/0x + wrappedNameTokenId',
+      'https://storyname-server.onrender.com/metadata/name/0x + nameTokenId',
   })
   @IsNotEmpty()
   @IsUrl()
-  readonly wrappedMetadataUrl: string;
+  readonly metadataUrl: string;
 
   @ApiProperty({
     description: 'The status of the name',

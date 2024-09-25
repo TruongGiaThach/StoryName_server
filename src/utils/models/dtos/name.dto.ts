@@ -10,13 +10,9 @@ import { Name } from 'src/models/names.schema';
 import { BaseSchema } from 'src/models/base.schema';
 
 export class NameDto extends BaseSchema {
-  @ApiProperty({ description: 'The ID of the wrapped name token (ERC1155)' })
-  @IsString()
-  wrappedNameTokenId: string;
-
   @ApiProperty({ description: 'The ID of the name token (ERC721)' })
   @IsString()
-  unwrappedNameTokenId: string;
+  tokenId: string;
 
   @ApiProperty({ description: 'The user`s ENS name' })
   @IsString()
@@ -41,10 +37,6 @@ export class NameDto extends BaseSchema {
   @IsString()
   labelHash?: string;
 
-  @ApiProperty({ description: 'Indicates if the name is wrapped' })
-  @IsBoolean()
-  isWrapped: boolean;
-
   @ApiProperty({ description: 'Blockchain network of the Name Service' })
   @IsString()
   chain: string;
@@ -53,9 +45,9 @@ export class NameDto extends BaseSchema {
   @IsString()
   owner: string;
 
-  @ApiProperty({ description: 'The metadata URL for the wrapped name' })
+  @ApiProperty({ description: 'The metadata URL for the name' })
   @IsUrl()
-  wrappedMetadataUrl: string;
+  metadataUrl: string;
 
   @ApiProperty({ description: 'The status of the name' })
   @IsString()
@@ -73,16 +65,14 @@ export class NameDto extends BaseSchema {
 
   static from(name: Name): NameDto {
     return {
-      wrappedNameTokenId: name.wrappedNameTokenId,
-      unwrappedNameTokenId: name.unwrappedNameTokenId,
+      tokenId: name.tokenId,
       name: name.name,
       nameHash: name.nameHash,
       label: name.label,
       labelHash: name.labelHash,
-      isWrapped: name.isWrapped,
       chain: name.chain,
       owner: name.owner,
-      wrappedMetadataUrl: name.wrappedMetadataUrl,
+      metadataUrl: name.metadataUrl,
       type: name.type,
       isPrimaryName: name.isPrimaryName,
       expiresAt: name.expiresAt,
