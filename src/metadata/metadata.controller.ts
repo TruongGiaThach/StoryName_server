@@ -48,7 +48,7 @@ export class MetadataController {
     return this.metadataService.findOne(id);
   }
 
-  @Get('wrapped-name/:tokenId')
+  @Get('/:tokenId')
   @ApiOperation({ summary: 'Retrieve Metadata by wrapped name token ID' })
   @ApiParam({
     name: 'tokenId',

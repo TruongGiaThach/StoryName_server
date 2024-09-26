@@ -67,7 +67,7 @@ export class CreateNameDto {
       'https://storyname-server.onrender.com/metadata/name/0x + nameTokenId',
   })
   @IsNotEmpty()
-  @IsUrl()
+  @IsUrl({ require_tld: false })
   readonly metadataUrl: string;
 
   @ApiProperty({

@@ -31,9 +31,9 @@ export class AuthService {
     nonce: string,
   ): Promise<BaseResult<User>> {
     const domain = {
-      name: 'Story Id',
+      name: 'Story Name Service',
       version: '1',
-      chainId: 84532,
+      chainId: 1513,
       verifyingContract: address.ETHRegistrarAddress,
     };
 

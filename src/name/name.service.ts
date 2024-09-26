@@ -38,12 +38,12 @@ export class NameService {
       throw new BadRequestException('Parent Chain not found');
     }
 
-    const commitDocument = await this.commitmentService.findOne({
-      name: createNameDto.label,
-    });
-    if (!commitDocument) {
-      throw new BadRequestException('Commitment not found');
-    }
+    // const commitDocument = await this.commitmentService.findOne({
+    //   name: createNameDto.label,
+    // });
+    // if (!commitDocument) {
+    //   throw new BadRequestException('Commitment not found');
+    // }
 
     if (createNameDto.isPrimaryName) {
       await this.nameModel.updateMany(
